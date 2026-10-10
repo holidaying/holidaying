@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="江湖虾客 · AI 全栈实践者" width="100%">
+</p>
+
+<!-- banner.svg 是本仓库 assets/ 下的封面图（自己画的技术风 SVG，无外部依赖）。
+     必须把 assets/banner.svg 一起 commit 到仓库里，相对路径才生效；
+     封面里已经有大标题了，嫌重复可以把下面这行 <h1> 删掉，只留副标题 -->
 <h1 align="center">江湖虾客</h1>
 
 <p align="center">
@@ -66,6 +73,14 @@
   <img src="https://skillicons.dev/icons?i=ts,vue,react,js,webpack,html,css,git&theme=dark&per_line=10" alt="Tech Stack">
 </p>
 
+<p align="center">
+  <sub>AI 方向</sub><br>
+  <img src="https://skillicons.dev/icons?i=py,openai,claude,fastapi,nodejs,docker&theme=dark&per_line=10" alt="AI Stack">
+</p>
+
+<!-- skillicons 的图标名必须是它收录的：openai / claude / py / fastapi / nodejs / docker 都实测可用；
+     想换成 langchain、redis、postgres、mongodb 也支持，不认识的图标会被静默跳过（整行变短，不会裂图） -->
+
 <details>
 <summary>📈 展开看能力分布</summary>
 <br>
@@ -89,6 +104,13 @@
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=holidaying&theme=dark&hide_border=true&radius=12" alt="GitHub Streak">
 </p>
+
+<p align="center">
+  <img src="https://ghchart.rshah.org/1a4fbf/holidaying" alt="holidaying GitHub Chart" width="92%">
+</p>
+
+<!-- ghchart 是按真实 commit 记录渲染的贡献热力图（最后一个斜杠后接用户名，
+     前面的 1a4fbf 是色号，改成 2ea043 就是 GitHub 官方绿色）；大陆可直连，实测可用 -->
 
 <p align="center">
   <sub>
