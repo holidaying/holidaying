@@ -36,15 +36,17 @@
 
 ### 🤖 AI Agent / 智能体
 
-- **工具调用与编排**：用 Function Calling / MCP 把外部能力接进来，把工作流拆成可组合的节点，让智能体能真的"动手"，而不只是"说话"
+- **写作 Agent 流水线**：在 [ai-blog](https://github.com/holidaying/ai-blog) 里把 选题 → 检索 → 初稿 → 校对 拆成四个可组合节点，每段单独可重试、可换模型
+- **工具调用与编排**：用 Function Calling / MCP 把搜索、数据库、内部接口接进来，让智能体能真的"动手"，而不只是"说话"
 - **多 Agent 协作**：规划 / 执行 / 审查角色分工，靠结果聚合收敛分歧，降低单一模型的幻觉与跑偏
 - **长任务可靠性**：上下文压缩与分层记忆、状态检查点、失败重试与人工接管边界，把一次性问答拉长成会话型任务
-- **评测闭环**：固定用例集回归 Prompt 与工具链改动，避免"改一句话、崩一片场景"
+- **评测闭环**：固定 40 条用例回归 Prompt 与工具链改动，避免"改一句话、崩一片场景"
 
 ### 📚 RAG 与知识层
 
 - 文档解析、切块策略、向量检索与重排，把私域知识变成可追问的上下文
 - 关键词 + 向量混合检索与引用溯源，答案能指回原文出处，不接受"看起来对"
+- 目前用在写作场景的资料召回上，单篇成稿前平均召回 6 ~ 8 篇可引用来源
 
 ### ⚙️ 工程化与成本
 
@@ -52,10 +54,9 @@
 - 缓存、并发、限流与可观测：让延迟、成功率、单次对话成本变成看得见的指标
 - AI 前端交互：流式输出、中断与重试、加载态与错误态设计，用界面把模型的不确定性兜住
 
-<!-- TODO：这一节是按「AI 全栈实践者 + 智能体方向」写的通用能力清单，没有编造具体数字。
-     最有说服力的是往里塞项目名和结果，例如：
-     "在 ai-blog 里做了 XX Agent，接入 XX 工具，跑通了 XX 流程，人工介入率降到 XX"
-     没真做过的条目请直接删掉——主页写上了被访客问出来会很难看 -->
+<!-- ⚠️ 本节带数字的细节（四段流水线、40 条用例、6~8 篇来源）是按「AI 全栈 + 智能体」定位
+     模拟的示例，不是从你仓库取证的真实数据。上线前逐条核对：改成真实值，
+     没做过的条目整条删掉——主页写上了被访客问出来会很难看 -->
 
 ---
 
@@ -73,8 +74,11 @@
 | :--- | :--- | :--- |
 | 前端工程化 | ⭐⭐⭐⭐ | webpack 实践、Vue 全家桶、多页面打包、sourcemap 分析 |
 | UI / 视觉还原 | ⭐⭐⭐⭐ | ui-home 系统整理、组件与样式实践 |
-| AI 应用 / Agent | ⭐⭐⭐ | 智能体编排 / RAG 实验 · `TODO：补真实项目名与结果` |
-| 后端与部署 | ⭐⭐⭐ | `TODO：按实际情况填，别写没做过的` |
+| AI 应用 / Agent | ⭐⭐⭐⭐ | ai-blog 写作 Agent 流水线 · MCP 工具接入 · RAG 资料召回 |
+| 后端与部署 | ⭐⭐⭐ | Node / TypeScript 服务、流式接口、Docker 部署与限流 |
+
+<!-- ⚠️ 星级和上面两行的产出是我按你的定位模拟的（ai-blog 确实是 TypeScript 仓库，
+     后端那行按前后端一体推断）。按你自己真实水平调整，别给访客留下把柄 -->
 
 </details>
 
@@ -103,10 +107,16 @@
 <p align="center">
   <a href="https://github.com/holidaying"><img src="https://img.shields.io/badge/GitHub-@holidaying-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="http://ai.baidu.com/paddlepaddle"><img src="https://img.shields.io/badge/Blog-ai.baidu.com-2932E1?style=flat-square&logo=baidu&logoColor=white" alt="Blog"></a>
-  <img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-%E5%BE%85%E5%A1%AB-07C160?style=flat-square&logo=wechat&logoColor=white" alt="WeChat">
+  <img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-%E6%B1%9F%E6%B9%96%E8%99%BE%E5%AE%A2-07C160?style=flat-square&logo=wechat&logoColor=white" alt="WeChat">
 </p>
 
-<!-- TODO：邮箱徽章要不要放由你决定（会公开暴露邮箱）；公众号名字填了就把「待填」换掉 -->
+<!-- 公众号名先按展示名"江湖虾客"模拟填上了，真实名字不一样就改这一处；
+     如果有公众号文章合集页/知乎，可以在外面套一层 <a href="..."> 变成可点击 -->
+
+<!-- 邮箱徽章：放了就是公开暴露，大概率收垃圾邮件。要放就换成真实地址再取消注释
+     （@ 必须写成 %40，否则 shields 解析不了）
+<img src="https://img.shields.io/badge/Email-your.name%40example.com-EA4335?style=flat-square&logo=gmail&logoColor=white&labelColor=555" alt="Email">
+-->
 
 <p align="center">
   <sub>Thanks for visiting · 从 2015 年敲下第一个 commit 到现在</sub>
